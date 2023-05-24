@@ -1,0 +1,97 @@
+# search in user contacts
+GET http://localhost:8000/search_user?pk=f311c8e964c24019bb671d4edecf2986
+Authorization: Token c8ab44d08be9280f28ba1d0d6b792d692fadd859
+
+POST http://localhost:8000/contacts
+Authorization: Token c8ab44d08be9280f28ba1d0d6b792d692fadd859
+Content-Type: application/json
+
+{
+"contacts":[ "01001556102","0106122113","1001124046", "1001124047"]
+}
+
+GET http://skip-back.duckdns.org:8000/contacts
+Authorization: Token 1c2168ad258846e9bdb75b7bf2f9dd82d7dd0d61
+
+GET http://localhost:8000/search_user?name=k5e8201e796548453cb0f89349c1e5ce9fa&pk=3feeb3b821a04c37a299429515f270b3
+Authorization: Token c8ab44d08be9280f28ba1d0d6b792d692fadd859
+
+# GET http://localhost:8000/search_user?pk=e8201e796548453cb0f89349c1e5ce9f
+# GET http://skip-back.duckdns.org:8000/search_user?phone=01012064613&pk=
+GET http://skipback.duckdns.org:8000/search_user?pk=c393e43cfd7e495fafaa565b13d37106
+Authorization: Token 1c2168ad258846e9bdb75b7bf2f9dd82d7dd0d61
+
+POST https://skip.krmali.xyz/signup
+Content-Type: application/json
+
+{
+"phone": "01012345678",
+"password": "partner1",
+"full_name": "Partner1",
+"user_type": 2
+# "finger_print": "ahmedahmed"
+}
+
+POST http://localhost:8000/finger_print
+Authorization: Token d529c3202b58463adf5acfa9728a28fdc38abbaa
+Content-Type: application/json
+
+{
+"finger_print": "",
+}
+
+POST http://localhost:8000/check_phone
+# Authorization: Token d529c3202b58463adf5acfa9728a28fdc38abbaa
+Content-Type: application/json
+
+{
+"phone": "01001124041"
+}
+# {"phone":"8996966666"}
+
+POST http://localhost:8000/code_response
+# Authorization: Token d529c3202b58463adf5acfa9728a28fdc38abbaa
+Content-Type: application/json
+
+{
+"phone": "01045454547",
+"code": "tR98"
+}
+
+# scan to pay and transfer
+POST http://localhost:8000/pay
+Authorization: Token c8ab44d08be9280f28ba1d0d6b792d692fadd859
+Content-Type: application/json
+
+{
+"type": "1",
+"amount": "100",
+"receiver": "e8201e796548453cb0f89349c1e5ce9f"
+}
+
+PUT http://localhost:8000/pay/3
+Authorization: Token 14033d7e11863cbccad7d73eeb0dc8ff47702f12
+Content-Type: application/json
+
+{
+"response": "1", # accept,reject,pending = 1,2,3
+"name": "k3"
+}
+
+#-----------------------------------------
+POST http://skip-back.duckdns.org:8000/login
+Content-Type: application/json
+
+{
+"phone": "01001124041",
+"password": "kareem"
+}
+
+#-----------------------------------------
+POST http://skip-back.duckdns.org:8000/login
+Content-Type: application/json
+
+{
+  "phone": "01012345678",
+  "password": "partner1"
+}

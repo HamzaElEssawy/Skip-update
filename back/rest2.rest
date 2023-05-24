@@ -1,0 +1,18 @@
+###
+POST http://localhost:8000/signup
+Content-Type: multipart/form-data;boundary=xxxxxxxx
+
+--xxxxxxxx
+Content-Disposition: form-data; name="json"
+Content-Type: application/json
+
+{
+"phone": "1001124044",
+"password": "kkkkkkkk"
+}
+--xxxxxxxx
+Content-Disposition: form-data; name="image"; filename="tux.png"
+Content-Type: image/png
+
+< ./tux.png
+--xxxxxxxx--
